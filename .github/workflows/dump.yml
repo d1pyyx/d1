@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p out
           cd Il2CppDumper/Il2CppDumper
-          (echo | dotnet run -c Release -- "$GITHUB_WORKSPACE/in/libil2cpp.so" "$GITHUB_WORKSPACE/in/global-metadata.dat" "$GITHUB_WORKSPACE/out") || true
+                    (echo | dotnet run -c Release --framework net8.0 -- "$GITHUB_WORKSPACE/in/libil2cpp.so" "$GITHUB_WORKSPACE/in/global-metadata.dat" "$GITHUB_WORKSPACE/out") || true
           ls -la "$GITHUB_WORKSPACE/out"
           test -f "$GITHUB_WORKSPACE/out/dump.cs"
       - uses: actions/upload-artifact@v4
